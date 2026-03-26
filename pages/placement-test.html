@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTY PRO | الاختبار الذكي</title>
+    <title>NEXTY PRO | اختبار تحديد المستوى</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,12 +11,10 @@
     <style>
         body { font-family: 'Noto Kufi Arabic', sans-serif; }
         .progress-bar { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 2rem; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--secondary); width: 0%; transition: width 0.5s ease-in-out; }
+        .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.5s ease-in-out; }
         .quiz-option { cursor: pointer; border: 2px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; transition: var(--transition); display: flex; align-items: center; gap: 1rem; }
-        .quiz-option:hover { border-color: var(--secondary); background: #f0f9ff; }
-        .quiz-option.selected { border-color: var(--secondary); background: #3b82f6; color: white; }
-        .quiz-option.correct { border-color: #10b981; background: #dcfce7; color: #065f46; }
-        .quiz-option.wrong { border-color: #ef4444; background: #fee2e2; color: #991b1b; }
+        .quiz-option:hover { border-color: var(--accent); background: #f0fdf4; }
+        .quiz-option.selected { border-color: var(--accent); background: var(--accent); color: white; }
     </style>
 </head>
 <body>
@@ -27,18 +25,18 @@
             <li><a href="lessons.html">المسارات التعليمية</a></li>
             <li><a href="quiz.html">الاختبارات الذكية</a></li>
         </ul>
-        <a href="../index.html" class="btn btn-secondary">إنهاء</a>
+        <a href="../index.html" class="btn btn-secondary">إلغاء</a>
     </nav>
 
-    <header class="hero" style="padding: 4rem 5% 2rem;">
+    <header class="hero" style="padding: 4rem 5% 2rem; background: linear-gradient(135deg, #f0fdf4, #e0f2fe);">
         <div class="container">
-            <h1 class="animate-fade">الاختبار <span style="color: var(--secondary);">الذكي</span></h1>
-            <p class="animate-fade" style="animation-delay: 0.2s;">التقييم النهائي لقياس مستوى المهارات الرقمية المكتسبة بعد الدروس</p>
+            <h1 class="animate-fade">اختبار <span style="color: var(--accent);">تحديد المستوى</span></h1>
+            <p class="animate-fade" style="animation-delay: 0.2s;">ابدأ رحلتك التعليمية من النقطة الصحيحة</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="quiz-box animate-fade" style="animation-delay: 0.4s;">
+        <div class="quiz-box animate-fade" style="animation-delay: 0.4s; border-top: 5px solid var(--accent);">
             <div class="progress-bar">
                 <div id="progress" class="progress-fill"></div>
             </div>
@@ -51,16 +49,16 @@
             </div>
 
             <div id="quiz-footer" style="margin-top: 3rem; display: flex; justify-content: space-between; align-items: center;">
-                <span id="question-counter" style="color: var(--text-muted); font-weight: 600;">السؤال 1 من 5</span>
-                <button id="next-btn" class="btn" style="display: none;">السؤال التالي</button>
+                <span id="question-counter" style="color: var(--text-muted); font-weight: 600;">السؤال 1 من 4</span>
+                <button id="next-btn" class="btn" style="display: none; background-color: var(--accent);">السؤال التالي</button>
             </div>
 
             <div id="result-screen" style="display: none; text-align: center;">
-                <div id="result-icon" style="font-size: 5rem; margin-bottom: 1rem;">🏆</div>
-                <h2 id="result-title" style="font-size: 2rem; margin-bottom: 1rem;">نتيجة مذهلة!</h2>
-                <p id="result-score" style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 2rem;">لقد حصلت على 5/5</p>
+                <div id="result-icon" style="font-size: 5rem; margin-bottom: 1rem;">📊</div>
+                <h2 id="result-title" style="font-size: 2rem; margin-bottom: 1rem;">تحليل مستواك</h2>
+                <p id="result-desc" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;"></p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <button onclick="location.reload()" class="btn">إعادة الاختبار</button>
+                    <a href="lessons.html" id="recommendation-btn" class="btn">ابدأ التعلم الآن</a>
                     <a href="../index.html" class="btn btn-secondary">العودة للرئيسية</a>
                 </div>
             </div>
@@ -69,19 +67,16 @@
 
     <script>
         const questions = [
-            { q: "أي مما يلي يعتبر من المكونات المادية (Hardware) للحاسوب؟", options: ["نظام التشغيل Windows", "متصفح Google Chrome", "وحدة المعالجة المركزية CPU", "برنامج Microsoft Word"], correct: 2 },
-            { q: "ما هو اختصار لوحة المفاتيح المستخدم لحفظ مستند في برنامج Word؟", options: ["Ctrl + C", "Ctrl + S", "Ctrl + V", "Ctrl + P"], correct: 1 },
-            { q: "في برنامج Excel، بماذا تبدأ الصيغة الرياضية دائماً؟", options: ["علامة (+)", "علامة (*)", "علامة (=)", "علامة (#)"], correct: 2 },
-            { q: "أي من البرامج التالية يستخدم لإنشاء العروض التقديمية؟", options: ["Excel", "PowerPoint", "Word", "Access"], correct: 1 },
-            { q: "ما هي الوظيفة الأساسية لبرنامج Microsoft Excel؟", options: ["كتابة الرسائل", "تصميم الصور", "إدارة الجداول والبيانات الحسابية", "تصفح الإنترنت"], correct: 2 }
+            { q: "ما هو مدى معرفتك السابقة ببرامج Microsoft Office؟", options: ["لا أعرف عنها شيئاً", "أعرف الأساسيات فقط", "أستخدمها بشكل متكرر", "أنا محترف فيها"], correct: -1 }, // Placement questions don't always have one "correct" answer
+            { q: "هل سبق لك التعامل مع أنظمة التشغيل وإدارة الملفات؟", options: ["نعم، بشكل محترف", "نعم، بشكل بسيط", "نادراً ما أستخدم الحاسوب", "لا أبداً"], correct: -1 },
+            { q: "ما هو هدفك الرئيسي من تعلم ICDL؟", options: ["الحصول على وظيفة", "تطوير مهاراتي الشخصية", "الدراسة الجامعية", "مجرد حب استطلاع"], correct: -1 },
+            { q: "هل تعرف كيفية حماية بياناتك من الفيروسات والاختراق؟", options: ["نعم، أطبق معايير الأمان", "أعرف القليل", "لا أعرف كيف أحمي نفسي", "أعتمد على برامج الحماية فقط"], correct: -1 }
         ];
 
         let currentIdx = 0;
-        let score = 0;
-        let answered = false;
+        let selections = [];
 
         function loadQuestion() {
-            answered = false;
             const q = questions[currentIdx];
             document.getElementById('question-text').innerText = q.q;
             document.getElementById('question-counter').innerText = `السؤال ${currentIdx + 1} من ${questions.length}`;
@@ -93,7 +88,7 @@
             q.options.forEach((opt, idx) => {
                 const div = document.createElement('div');
                 div.className = 'quiz-option';
-                div.innerHTML = `<span>${String.fromCharCode(65 + idx)}</span> <strong>${opt}</strong>`;
+                div.innerHTML = `<span>${idx + 1}</span> <strong>${opt}</strong>`;
                 div.onclick = () => selectOption(idx, div);
                 container.appendChild(div);
             });
@@ -101,22 +96,13 @@
         }
 
         function selectOption(idx, element) {
-            if (answered) return;
-            answered = true;
-            const q = questions[currentIdx];
             const options = document.querySelectorAll('.quiz-option');
-            
-            if (idx === q.correct) {
-                element.classList.add('correct');
-                score++;
-            } else {
-                element.classList.add('wrong');
-                options[q.correct].classList.add('correct');
-            }
-            
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            selections[currentIdx] = idx;
             document.getElementById('next-btn').style.display = 'inline-flex';
             if (currentIdx === questions.length - 1) {
-                document.getElementById('next-btn').innerText = 'عرض النتيجة';
+                document.getElementById('next-btn').innerText = 'عرض التوصية';
             }
         }
 
@@ -135,11 +121,21 @@
             document.getElementById('quiz-footer').style.display = 'none';
             document.getElementById('result-screen').style.display = 'block';
             
-            document.getElementById('result-score').innerText = `لقد حصلت على ${score} من أصل ${questions.length}`;
-            if (score < 3) {
-                document.getElementById('result-icon').innerText = '📚';
-                document.getElementById('result-title').innerText = 'تحتاج لمزيد من المراجعة';
+            // Simple logic for placement recommendation
+            const firstChoice = selections[0];
+            let level = "";
+            let recommendation = "";
+
+            if (firstChoice <= 1) {
+                level = "مبتدئ";
+                recommendation = "ننصحك بالبدء بمسار 'أساسيات الحاسوب' لبناء قاعدة قوية قبل الانتقال للبرامج المتقدمة.";
+            } else {
+                level = "متوسط / متقدم";
+                recommendation = "لديك خلفية جيدة! يمكنك البدء مباشرة بمسار 'الجداول الذكية Excel' أو 'أمن المعلومات' لتعزيز مهاراتك.";
             }
+
+            document.getElementById('result-title').innerText = `مستواك المقترح: ${level}`;
+            document.getElementById('result-desc').innerText = recommendation;
         }
 
         loadQuestion();
