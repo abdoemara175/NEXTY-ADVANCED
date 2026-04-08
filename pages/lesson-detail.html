@@ -3,61 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTY PRO | تفاصيل المسار</title>
+    <title>Uoni | تفاصيل المسار التعليمي</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Kufi Arabic', sans-serif; }
-        .objective-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; padding: 1rem; background: #f8fafc; border-radius: 12px; transition: var(--transition); }
-        .objective-item:hover { transform: translateX(-5px); background: #f1f5f9; }
-        .objective-icon { font-size: 1.5rem; color: var(--secondary); }
+        .objective-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; padding: 1.2rem; background: rgba(125, 211, 252, 0.05); border-radius: 16px; border: 1px solid rgba(125, 211, 252, 0.1); transition: var(--transition); }
+        .objective-item:hover { transform: translateX(-8px); background: rgba(125, 211, 252, 0.1); border-color: var(--secondary); }
+        .objective-icon { font-size: 1.8rem; }
+        .content-area { font-size: 1.2rem; line-height: 2; color: var(--text-main); }
+        .content-area h3 { margin-top: 2rem; }
+        .sidebar-card { position: sticky; top: 120px; background: var(--surface); border: 1px solid rgba(125, 211, 252, 0.1); padding: 2.5rem; border-radius: 24px; }
     </style>
 </head>
 <body>
     <nav class="navbar animate-fade">
-        <div class="logo">NEXTY PRO</div>
+        <div class="logo">Uoni</div>
         <ul class="nav-links">
             <li><a href="../index.html">الرئيسية</a></li>
-            <li><a href="lessons.html">المسارات التعليمية</a></li>
-            <li><a href="quiz.html">الاختبارات الذكية</a></li>
+            <li><a href="lessons.html">مسارات AI</a></li>
+            <li><a href="quiz.html">تحديات ذكية</a></li>
         </ul>
-        <a href="lessons.html" class="btn btn-secondary">كل المسارات</a>
+        <a href="lessons.html" class="btn btn-secondary" style="padding: 0.6rem 1.5rem;">كل المسارات</a>
     </nav>
 
-    <header class="hero" style="padding: 6rem 5% 4rem; background: linear-gradient(135deg, #f8fafc, #e0f2fe);">
+    <header class="hero" style="padding: 8rem 5% 4rem; text-align: right;">
         <div class="container">
-            <h1 id="lesson-title" class="animate-fade">جاري التحميل...</h1>
-            <p id="lesson-subtitle" class="animate-fade" style="animation-delay: 0.2s;"></p>
+            <h1 id="lesson-title" class="animate-fade" style="font-size: 3.5rem;">جاري التحميل...</h1>
+            <p id="lesson-subtitle" class="animate-fade" style="animation-delay: 0.2s; font-size: 1.3rem; max-width: 800px; color: var(--text-muted);"></p>
         </div>
     </header>
 
     <main class="container">
-        <div style="display: grid; grid-template-columns: 1fr 350px; gap: 3rem; margin-top: 4rem; flex-wrap: wrap;">
-            <div class="animate-fade" style="animation-delay: 0.4s;">
-                <h2 style="color: var(--primary); margin-bottom: 2rem; border-right: 4px solid var(--secondary); padding-right: 1rem;">محتوى المسار التعليمي</h2>
-                <div id="lesson-content" style="font-size: 1.15rem; line-height: 2; color: var(--text-main);">
+        <div style="display: flex; gap: 4rem; margin-top: 4rem; flex-wrap: wrap;">
+            <div class="animate-fade" style="flex: 1.5; min-width: 350px; animation-delay: 0.4s;">
+                <h2 style="color: var(--white); margin-bottom: 2.5rem; border-right: 5px solid var(--secondary); padding-right: 1.5rem; font-size: 2.2rem;">محتوى المسار التعليمي</h2>
+                <div id="lesson-content" class="content-area">
                     <!-- Content loaded via JS -->
+                </div>
+                <div style="margin-top: 5rem; padding: 3rem; background: linear-gradient(135deg, rgba(125, 211, 252, 0.1), transparent); border-radius: 30px; border: 1px solid rgba(125, 211, 252, 0.1); text-align: center;">
+                    <h3 style="color: var(--white); margin-bottom: 1.5rem;">هل أنت مستعد لاختبار معلوماتك؟</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2.5rem;">تحدَّ نفسك في اختبار ذكي يقيس مدى استيعابك للمفاهيم التي تعلمتها في هذا المسار.</p>
+                    <a href="quiz.html" class="btn" style="padding: 1rem 3rem; font-size: 1.1rem;">ابدأ التحدي الآن</a>
                 </div>
             </div>
 
-            <aside class="animate-fade" style="animation-delay: 0.6s;">
-                <div class="card" style="position: sticky; top: 120px;">
-                    <h3 style="margin-bottom: 1.5rem;">أهداف التعلم</h3>
+            <aside class="animate-fade" style="flex: 0.8; min-width: 300px; animation-delay: 0.6s;">
+                <div class="sidebar-card">
+                    <h3 style="margin-bottom: 2rem; color: var(--white); font-size: 1.6rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <span>🎯</span> أهداف التعلم
+                    </h3>
                     <div id="objectives-container">
                         <!-- Objectives loaded via JS -->
-                    </div>
-                    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9; text-align: center;">
-                        <a href="quiz.html" class="btn" style="width: 100%; justify-content: center;">ابدأ الاختبار الآن</a>
                     </div>
                 </div>
             </aside>
         </div>
     </main>
 
-    <footer style="margin-top: 8rem; text-align: center; padding: 2rem;">
-        <p>&copy; 2026 NEXTY PRO - جميع الحقوق محفوظة</p>
+    <footer style="margin-top: 10rem; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container" style="text-align: center;">
+            <div class="footer-logo" style="margin-bottom: 1rem;">Uoni</div>
+            <p style="color: var(--text-muted);">&copy; 2026 Uoni AI Education - جميع الحقوق محفوظة</p>
+        </div>
     </footer>
 
     <script src="../js/lessons-data.js"></script>
@@ -74,19 +83,21 @@
             const objectivesHTML = `
                 <div class="objective-item">
                     <span class="objective-icon">🧠</span>
-                    <div><strong>معرفي:</strong><br>${lesson.objectives.cognitive}</div>
+                    <div><strong style="color: var(--secondary);">معرفي:</strong><p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">${lesson.objectives.cognitive}</p></div>
                 </div>
                 <div class="objective-item">
                     <span class="objective-icon">🛠</span>
-                    <div><strong>مهاري:</strong><br>${lesson.objectives.skill}</div>
+                    <div><strong style="color: var(--secondary);">مهاري:</strong><p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">${lesson.objectives.skill}</p></div>
                 </div>
                 <div class="objective-item">
                     <span class="objective-icon">💎</span>
-                    <div><strong>وجداني:</strong><br>${lesson.objectives.emotional}</div>
+                    <div><strong style="color: var(--secondary);">وجداني:</strong><p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">${lesson.objectives.emotional}</p></div>
                 </div>
             `;
             document.getElementById('objectives-container').innerHTML = objectivesHTML;
-            document.title = `NEXTY PRO | ${lesson.title}`;
+            document.title = `Uoni | ${lesson.title}`;
+        } else {
+            window.location.href = 'lessons.html';
         }
     </script>
 </body>

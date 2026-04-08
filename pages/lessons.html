@@ -3,81 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTY PRO | المسارات التعليمية</title>
+    <title>Uoni | مسارات تعلم الذكاء الاصطناعي</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Kufi Arabic', sans-serif; }
-        .badge { display: inline-block; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .badge-pro { background: #e0f2fe; color: #0369a1; }
-        .badge-essentials { background: #fef3c7; color: #92400e; }
-        .badge-security { background: #fee2e2; color: #991b1b; }
+        .badge { display: inline-block; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 800; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-ai { background: rgba(125, 211, 252, 0.15); color: var(--secondary); border: 1px solid rgba(125, 211, 252, 0.3); }
+        .badge-ml { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .badge-ethic { background: rgba(244, 63, 94, 0.1); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.2); }
+        
+        .card { border: 1px solid rgba(255, 255, 255, 0.05); }
+        .card:hover { border-color: var(--secondary); }
+        
+        .lesson-meta { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; align-items: center; }
+        .lesson-meta span { font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; }
     </style>
 </head>
 <body>
     <nav class="navbar animate-fade">
-        <div class="logo">NEXTY PRO</div>
+        <div class="logo">Uoni</div>
         <ul class="nav-links">
             <li><a href="../index.html">الرئيسية</a></li>
-            <li><a href="lessons.html">المسارات التعليمية</a></li>
-            <li><a href="quiz.html">الاختبارات الذكية</a></li>
+            <li><a href="lessons.html">مسارات AI</a></li>
+            <li><a href="quiz.html">تحديات ذكية</a></li>
         </ul>
-        <a href="../index.html" class="btn btn-secondary">رجوع</a>
+        <a href="../index.html" class="btn btn-secondary" style="padding: 0.6rem 1.5rem;">رجوع</a>
     </nav>
 
-    <header class="hero" style="padding: 6rem 5% 4rem;">
+    <header class="hero" style="padding: 8rem 5% 5rem;">
         <div class="container">
-            <h1 class="animate-fade">المسارات التعليمية <span style="color: var(--secondary);">الاحترافية</span></h1>
-            <p class="animate-fade" style="animation-delay: 0.2s;">اختر تخصصك اليوم وابدأ رحلة التميز الرقمي</p>
+            <h1 class="animate-fade">مسارات <span style="color: var(--secondary); text-shadow: var(--baby-blue-glow);">الذكاء الاصطناعي</span></h1>
+            <p class="animate-fade" style="animation-delay: 0.2s; max-width: 600px; margin: 0 auto;">اختر مسارك التعليمي المخصص وابدأ في بناء مستقبلك في عالم التقنيات الذكية.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="grid animate-fade" style="animation-delay: 0.4s;">
+        <div class="grid animate-fade" style="animation-delay: 0.4s; margin-bottom: 8rem;">
+            <!-- Lesson 1 -->
             <div class="card">
-                <span class="badge badge-essentials">أساسي</span>
-                <h3>أساسيات الحاسوب (IT)</h3>
-                <p>فهم عميق للمكونات المادية والبرمجية وكيفية إدارة الملفات بذكاء.</p>
-                <div style="margin-top: 1.5rem; border-top: 1px solid #f1f5f9; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.9rem; color: var(--text-muted);">⏱ 45 دقيقة</span>
-                    <a href="lesson-detail.html?id=1" class="btn" style="padding: 0.5rem 1rem;">عرض المسار</a>
+                <span class="badge badge-ai">أساسيات</span>
+                <h3>مقدمة في الذكاء الاصطناعي</h3>
+                <p>رحلة لاستكشاف المفاهيم الأساسية والأنواع المختلفة للذكاء الاصطناعي وتطبيقاته.</p>
+                <div class="lesson-meta">
+                    <span>⏱ 40 دقيقة</span>
+                    <a href="lesson-detail.html?id=1" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">ابدأ المسار</a>
                 </div>
             </div>
+
+            <!-- Lesson 2 -->
             <div class="card">
-                <span class="badge badge-pro">متقدم</span>
-                <h3>معالجة النصوص (Word)</h3>
-                <p>إتقان إنشاء المستندات والتقارير الاحترافية وتنسيقها بأعلى المعايير.</p>
-                <div style="margin-top: 1.5rem; border-top: 1px solid #f1f5f9; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.9rem; color: var(--text-muted);">⏱ 60 دقيقة</span>
-                    <a href="lesson-detail.html?id=2" class="btn" style="padding: 0.5rem 1rem;">عرض المسار</a>
+                <span class="badge badge-ml">تقني</span>
+                <h3>أساسيات تعلم الآلة</h3>
+                <p>تعرف على كيفية تعلم الخوارزميات من البيانات واتخاذ قرارات ذكية دون تدخل بشري.</p>
+                <div class="lesson-meta">
+                    <span>⏱ 55 دقيقة</span>
+                    <a href="lesson-detail.html?id=2" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">ابدأ المسار</a>
                 </div>
             </div>
+
+            <!-- Lesson 3 -->
             <div class="card">
-                <span class="badge badge-pro">متقدم</span>
-                <h3>الجداول الذكية (Excel)</h3>
-                <p>تحليل البيانات وإجراء العمليات الحسابية المعقدة والرسوم البيانية التفاعلية.</p>
-                <div style="margin-top: 1.5rem; border-top: 1px solid #f1f5f9; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.9rem; color: var(--text-muted);">⏱ 90 دقيقة</span>
-                    <a href="lesson-detail.html?id=3" class="btn" style="padding: 0.5rem 1rem;">عرض المسار</a>
+                <span class="badge badge-ai">إبداعي</span>
+                <h3>الذكاء الاصطناعي التوليدي</h3>
+                <p>اتقن استخدام النماذج اللغوية الكبيرة وأدوات توليد الصور وبناء المحتوى الذكي.</p>
+                <div class="lesson-meta">
+                    <span>⏱ 60 دقيقة</span>
+                    <a href="lesson-detail.html?id=3" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">ابدأ المسار</a>
                 </div>
             </div>
+
+            <!-- Lesson 4 -->
             <div class="card">
-                <span class="badge badge-security">حرج</span>
-                <h3>أمن المعلومات (Security)</h3>
-                <p>حماية خصوصيتك الرقمية وتجنب التهديدات السيبرانية والبحث الآمن.</p>
-                <div style="margin-top: 1.5rem; border-top: 1px solid #f1f5f9; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.9rem; color: var(--text-muted);">⏱ 50 دقيقة</span>
-                    <a href="lesson-detail.html?id=6" class="btn" style="padding: 0.5rem 1rem;">عرض المسار</a>
+                <span class="badge badge-ethic">أخلاقيات</span>
+                <h3>الأخلاقيات ومستقبل العمل</h3>
+                <p>فهم التحديات الأخلاقية وكيفية التكيف مع التحولات الكبرى في سوق العمل العالمي.</p>
+                <div class="lesson-meta">
+                    <span>⏱ 45 دقيقة</span>
+                    <a href="lesson-detail.html?id=4" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">ابدأ المسار</a>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="container" style="text-align: center;">
-            <p>&copy; 2026 NEXTY PRO - جميع الحقوق محفوظة</p>
+        <div class="container" style="text-align: center; padding: 4rem 0;">
+            <div class="footer-logo" style="margin-bottom: 1rem;">Uoni</div>
+            <p style="color: var(--text-muted);">&copy; 2026 Uoni AI Platform - جميع الحقوق محفوظة</p>
         </div>
     </footer>
 </body>

@@ -3,62 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXTY PRO | اختبار تحديد المستوى</title>
+    <title>Uoni | اختبار تحديد المستوى</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Kufi Arabic', sans-serif; }
-        .progress-bar { width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 2rem; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.5s ease-in-out; }
-        .quiz-option { cursor: pointer; border: 2px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; transition: var(--transition); display: flex; align-items: center; gap: 1rem; }
-        .quiz-option:hover { border-color: var(--accent); background: #f0fdf4; }
-        .quiz-option.selected { border-color: var(--accent); background: var(--accent); color: white; }
+        .progress-container { width: 100%; height: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; margin-bottom: 3rem; overflow: hidden; border: 1px solid rgba(125, 211, 252, 0.1); }
+        .progress-bar { height: 100%; background: linear-gradient(to left, var(--secondary), var(--accent)); width: 0%; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: var(--baby-blue-glow); }
+        
+        .quiz-option { cursor: pointer; border: 1px solid rgba(125, 211, 252, 0.1); border-radius: 18px; padding: 1.2rem; margin-bottom: 1.2rem; transition: var(--transition); display: flex; align-items: center; gap: 1.2rem; background: rgba(255, 255, 255, 0.02); color: var(--text-main); }
+        .quiz-option:hover { border-color: var(--secondary); background: rgba(125, 211, 252, 0.08); transform: translateX(-5px); }
+        .quiz-option.selected { border-color: var(--secondary); background: var(--secondary); color: var(--primary); font-weight: 700; }
+        
+        .option-index { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: rgba(125, 211, 252, 0.1); border-radius: 50%; font-weight: 800; color: var(--secondary); font-size: 0.9rem; }
+        .quiz-option.selected .option-index { background: var(--primary); color: var(--secondary); }
     </style>
 </head>
 <body>
     <nav class="navbar animate-fade">
-        <div class="logo">NEXTY PRO</div>
+        <div class="logo">Uoni</div>
         <ul class="nav-links">
             <li><a href="../index.html">الرئيسية</a></li>
-            <li><a href="lessons.html">المسارات التعليمية</a></li>
-            <li><a href="quiz.html">الاختبارات الذكية</a></li>
+            <li><a href="lessons.html">مسارات AI</a></li>
+            <li><a href="quiz.html">تحديات ذكية</a></li>
         </ul>
-        <a href="../index.html" class="btn btn-secondary">إلغاء</a>
+        <a href="../index.html" class="btn btn-secondary" style="padding: 0.6rem 1.5rem;">إلغاء</a>
     </nav>
 
-    <header class="hero" style="padding: 4rem 5% 2rem; background: linear-gradient(135deg, #f0fdf4, #e0f2fe);">
+    <header class="hero" style="padding: 6rem 5% 3rem;">
         <div class="container">
-            <h1 class="animate-fade">اختبار <span style="color: var(--accent);">تحديد المستوى</span></h1>
-            <p class="animate-fade" style="animation-delay: 0.2s;">ابدأ رحلتك التعليمية من النقطة الصحيحة</p>
+            <h1 class="animate-fade">تحديد <span style="color: var(--secondary); text-shadow: var(--baby-blue-glow);">المستوى</span></h1>
+            <p class="animate-fade" style="animation-delay: 0.2s;">لنكتشف معاً نقطة البداية المثالية لك في عالم الذكاء الاصطناعي.</p>
         </div>
     </header>
 
     <main class="container">
-        <div class="quiz-box animate-fade" style="animation-delay: 0.4s; border-top: 5px solid var(--accent);">
-            <div class="progress-bar">
-                <div id="progress" class="progress-fill"></div>
+        <div class="quiz-box animate-fade" style="animation-delay: 0.4s; margin-bottom: 6rem;">
+            <div class="progress-container">
+                <div id="progress" class="progress-bar"></div>
             </div>
             
             <div id="quiz-content">
-                <h2 id="question-text" style="margin-bottom: 2rem; font-size: 1.5rem; color: var(--primary);">جاري تحميل الأسئلة...</h2>
+                <h2 id="question-text" style="margin-bottom: 2.5rem; font-size: 1.8rem; color: var(--white); line-height: 1.4;">جاري تحميل الأسئلة...</h2>
                 <div id="options-container">
                     <!-- Options injected here -->
                 </div>
             </div>
 
-            <div id="quiz-footer" style="margin-top: 3rem; display: flex; justify-content: space-between; align-items: center;">
-                <span id="question-counter" style="color: var(--text-muted); font-weight: 600;">السؤال 1 من 4</span>
-                <button id="next-btn" class="btn" style="display: none; background-color: var(--accent);">السؤال التالي</button>
+            <div id="quiz-footer" style="margin-top: 4rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+                <span id="question-counter" style="color: var(--text-muted); font-weight: 600; font-size: 1.1rem;">السؤال 1 من 4</span>
+                <button id="next-btn" class="btn" style="display: none; padding: 0.8rem 2.5rem;">التالي ➔</button>
             </div>
 
-            <div id="result-screen" style="display: none; text-align: center;">
-                <div id="result-icon" style="font-size: 5rem; margin-bottom: 1rem;">📊</div>
-                <h2 id="result-title" style="font-size: 2rem; margin-bottom: 1rem;">تحليل مستواك</h2>
-                <p id="result-desc" style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;"></p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="lessons.html" id="recommendation-btn" class="btn">ابدأ التعلم الآن</a>
+            <div id="result-screen" style="display: none; text-align: center; padding: 2rem 0;">
+                <div id="result-icon" style="font-size: 6rem; margin-bottom: 2rem; filter: drop-shadow(0 0 15px var(--secondary));">📊</div>
+                <h2 id="result-title" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--white);">تحليل مستواك</h2>
+                <p id="result-desc" style="font-size: 1.3rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;"></p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="lessons.html" id="recommendation-btn" class="btn">ابدأ رحلة التعلم</a>
                     <a href="../index.html" class="btn btn-secondary">العودة للرئيسية</a>
                 </div>
             </div>
@@ -67,10 +70,10 @@
 
     <script>
         const questions = [
-            { q: "ما هو مدى معرفتك السابقة ببرامج Microsoft Office؟", options: ["لا أعرف عنها شيئاً", "أعرف الأساسيات فقط", "أستخدمها بشكل متكرر", "أنا محترف فيها"], correct: -1 }, // Placement questions don't always have one "correct" answer
-            { q: "هل سبق لك التعامل مع أنظمة التشغيل وإدارة الملفات؟", options: ["نعم، بشكل محترف", "نعم، بشكل بسيط", "نادراً ما أستخدم الحاسوب", "لا أبداً"], correct: -1 },
-            { q: "ما هو هدفك الرئيسي من تعلم ICDL؟", options: ["الحصول على وظيفة", "تطوير مهاراتي الشخصية", "الدراسة الجامعية", "مجرد حب استطلاع"], correct: -1 },
-            { q: "هل تعرف كيفية حماية بياناتك من الفيروسات والاختراق؟", options: ["نعم، أطبق معايير الأمان", "أعرف القليل", "لا أعرف كيف أحمي نفسي", "أعتمد على برامج الحماية فقط"], correct: -1 }
+            { q: "ما هو مدى معرفتك بمفهوم الذكاء الاصطناعي؟", options: ["أسمع به لأول مرة", "أعرف بعض التطبيقات البسيطة", "أفهم المبادئ الأساسية بشكل جيد", "أنا ممارس أو متخصص في هذا المجال"], correct: -1 },
+            { q: "هل لديك خلفية برمجية أو تقنية مسبقة؟", options: ["لا، أبدأ من الصفر تماماً", "لدي معرفة بسيطة بأساسيات الحاسوب", "أجيد لغة برمجة واحدة على الأقل", "أنا محترف في البرمجة وعلوم البيانات"], correct: -1 },
+            { q: "ما هو هدفك الأساسي من الانضمام لمنصة Uoni؟", options: ["مجرد الفضول وحب الاستطلاع", "استخدام أدوات AI في عملي الحالي", "تغيير مساري المهني نحو الذكاء الاصطناعي", "بناء نماذج AI خاصة بي"], correct: -1 },
+            { q: "هل سمعت عن 'تعلم الآلة' أو 'الشبكات العصبية' من قبل؟", options: ["لا أبداً", "سمعت المصطلحات فقط", "أفهم فكرتها العامة", "درستها أو طبقتها عملياً"], correct: -1 }
         ];
 
         let currentIdx = 0;
@@ -88,7 +91,7 @@
             q.options.forEach((opt, idx) => {
                 const div = document.createElement('div');
                 div.className = 'quiz-option';
-                div.innerHTML = `<span>${idx + 1}</span> <strong>${opt}</strong>`;
+                div.innerHTML = `<div class="option-index">${idx + 1}</div> <strong>${opt}</strong>`;
                 div.onclick = () => selectOption(idx, div);
                 container.appendChild(div);
             });
@@ -102,7 +105,7 @@
             selections[currentIdx] = idx;
             document.getElementById('next-btn').style.display = 'inline-flex';
             if (currentIdx === questions.length - 1) {
-                document.getElementById('next-btn').innerText = 'عرض التوصية';
+                document.getElementById('next-btn').innerText = 'عرض التوصية الذكية';
             }
         }
 
@@ -121,17 +124,19 @@
             document.getElementById('quiz-footer').style.display = 'none';
             document.getElementById('result-screen').style.display = 'block';
             
-            // Simple logic for placement recommendation
-            const firstChoice = selections[0];
+            const scoreSum = selections.reduce((a, b) => a + b, 0);
             let level = "";
             let recommendation = "";
 
-            if (firstChoice <= 1) {
-                level = "مبتدئ";
-                recommendation = "ننصحك بالبدء بمسار 'أساسيات الحاسوب' لبناء قاعدة قوية قبل الانتقال للبرامج المتقدمة.";
+            if (scoreSum <= 3) {
+                level = "مستكشف مبتدئ (Explorer)";
+                recommendation = "أهلاً بك في عالم الذكاء الاصطناعي! ننصحك بالبدء بمسار 'مقدمة في الذكاء الاصطناعي' لبناء أساس متين وفهم الصورة الكبيرة قبل التعمق في التفاصيل التقنية.";
+            } else if (scoreSum <= 8) {
+                level = "متحمس تقني (Tech Enthusiast)";
+                recommendation = "لديك خلفية رائعة! يمكنك البدء بمسار 'الذكاء الاصطناعي التوليدي' لاستكشاف الأدوات الحديثة، أو الانتقال مباشرة لـ 'أساسيات تعلم الآلة' إذا كنت ترغب في فهم الجوانب التقنية.";
             } else {
-                level = "متوسط / متقدم";
-                recommendation = "لديك خلفية جيدة! يمكنك البدء مباشرة بمسار 'الجداول الذكية Excel' أو 'أمن المعلومات' لتعزيز مهاراتك.";
+                level = "ممارس متقدم (Advanced Practitioner)";
+                recommendation = "مذهل! مستواك يسمح لك بالتعمق في مسارات 'تعلم الآلة' و 'الذكاء الاصطناعي التوليدي' المتقدمة. ننصحك أيضاً بالاطلاع على مسار 'الأخلاقيات' لفهم أبعاد المسؤولية التقنية.";
             }
 
             document.getElementById('result-title').innerText = `مستواك المقترح: ${level}`;
